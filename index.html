@@ -1,57 +1,97 @@
-/*Html代码:*/
-<canvasid="evanyou" width="1920" height="934"></canvas>
-/*CSS代码:*/
-<styletype="text/css">
-  #evanyou{
-      position:fixed;
-      width:100%;
-      height:100%;
-      left:0;
-      top:0;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试一下</title>
+    <style type="text/css">
+        div {
 
-/*JS代码:*/
-//evanyou效果
-      var c = document.getElementById('evanyou'),
-          x = c.getContext('2d'),
-          pr = window.devicePixelRatio || 1,
-          w = window.innerWidth,
-          h = window.innerHeight,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI * 2,
-          v = m.cos,
-          z = m.random;
-      c.width = w * pr;
-      c.height = h * pr;
-      x.scale(pr, pr);
-      x.globalAlpha = 0.6;
-      function evanyou() {
-          x.clearRect(0, 0, w, h)
-          q = [{ x: 0, y: h * .7 + f }, { x: 0, y: h * .7 - f }]
-          while (q[1].x < w + f) d(q[0], q[1])
-      }
-      function d(i,j) {
-          x.beginPath()
-          x.moveTo(i.x, i.y)
-          x.lineTo(j.x, j.y)
-          var k = j.x + (z() * 2 - 0.25) * f,
-              n = y(j.y)
-          x.lineTo(k, n)
-          x.closePath()
-          r -= u / -50
-          x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u/ 3) * 127 + 128 << 8 | v(r + u/ 3 * 2) * 127 + 128).toString(16)
-          x.fill()
-          q[0] = q[1]
-          q[1] = { x: k, y: n }
-      }
-      function y(p) {
-          var t = p + (z() * 2 - 1.1) * f
-          return (t > h || t < 0) ? y(p) : t
-      }
-      document.onclick = evanyou
-      document.ontouchstart = evanyou
-      evanyou();
+            font-weight:bold;
+            font-family: Microsoft Yahei;
+            width: 400px;
+            padding-left: 50px;
+            margin-left: 450px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #sub {
+            background-color: #689;
+            width: 250px;
+            height: 30px;
+            color:white;
+            font-weight: bold;
+        }
+        body {
+            background-image: url("http://pic.qiantucdn.com/58pic/20/13/88/25r58PICqQa_1024.jpg");
+        }
+    </style>
+    <script type="text/javascript">
+        function abc()
+        {
+            if (document.getElementById("name").value == "")
+            {
+                alert("Please write your name!");
+                form.myname.focus();
+                return false;
+            }
+            if (document.getElementById("passward").value == "")
+            {
+                alert("Please write your password!");
+                form.mypassward.focus();
+                return false;
+            }
+            if (document.getElementById("profile").value == "")
+            {
+                alert("please write your profile!");
+                form.profile.focus();
+                return false;
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="sign">
+    <h1>Sigh Up</h1></br>
+    <h2>Your basic info</h2>
+    <form>
+        <strong>Name:</strong>
+        <input type="text" name="myname" id="name"/></br>
+        </br>
+
+        <strong>Passward:</strong>
+        <input type="password" name="mypassward" id="passward"/></br>
+        </br>
+
+        <strong>Age:</strong></br>
+        <input type="radio" name="age" value="1" checked="checked"/>Under 13</br>
+        <input type="radio" name="age" value="2" />13 or older</br>
+        </br>
+
+        <strong>Your profile:</strong></br>
+        <textarea cols="50" rows="4" name="profile" id="profile"></textarea></br>
+        </br>
+
+        <strong>Job Role:</strong></br>
+        <select>
+            <option value="Front-End Developer" selected="selected" name="job">Front-End Developer</option>
+            <option value="Back-End Developer" name="job">Back-End Developer</option>
+        </select></br>
+        </br>
+
+        <strong>Interests:</strong></br>
+        <input type="checkbox" name="development" value="1" checked="checked">Development</br>
+        <input type="checkbox" name="design" value="2" >Design</br>
+        <input type="checkbox" name="business" value="3" >Business</br>
+        </br>
+
+        <input type="submit" name="Sign Up" value="Sign Up" id="sub" οnclick="abc()">
+        </input>
+    </form>
+</div>
+</body>
+</html>
