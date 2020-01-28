@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Let it be</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body {
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            /*margin: 0;*/
+            overflow: hidden;
+            height: 100%;
+            /*background-color: black;*/
+        }
+
+        main section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        #button {
+            font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+            position: absolute;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            padding: 7px 20px;
+            /*left: 50%;*/
+            /*width: 200px;*/
+            /*margin-top: 25%;*/
+            /*margin-left: -100px;*/
+            top: 30%;
+            border-radius: 10px;
+            color: white;
+            text-shadow: -1px -1px 1px rgba(0,0,0,0.8);
+            border: 5px solid transparent;
+            border-bottom-color: rgba(0,0,0,0.35);
+            background: hsla(260, 100%, 50%, 1);
+            outline: none;
+            cursor: pointer;
+
+            animation: pulse 1s infinite alternate;
+            transition: background 0.4s, border 0.2s, margin 0.2s;
+        }
+        #button:hover {
+            background: hsla(220, 100%, 60%, 1);
+            margin-top: -1px;
+
+            animation: none;
+        }
+        #button:active {
+            border-bottom-width: 0;
+            margin-top: 5px;
+        }
+        @keyframes pulse {
+            0% {
+                margin-top: 0px;
+            }
+            100% {
+                margin-top: 6px;
+            }
+        }
+        #rec{
+            position: absolute;
+            background-color: black;
+            width: 50%;
+            height: 50%;
+            top: 25%;
+            left: 1%;
+        }
+        #tri{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 200px solid transparent;
+            border-top-color: greenyellow;
+            border-bottom: none;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            top: 20%;
+            left: 1%;
+        }
+        .circle{
+            position: absolute;
+            background-color: black;
+            width: 10em;
+            height: 10em;
+            top: 6%;
+            border-radius: 100% 0 0 0;
+            display: none;
+
+        }
+        #circle2{
+            /*background-color: #34696f;*/
+            transform: rotate(270deg) translateX(-10em);
+        }
+        #circle3{
+            /*background-color: #2d0920;*/
+            transform: rotate(180deg) translate(-10em,-10em);
+
+        }
+        #circle4{
+            background-color: #bb2253;
+            transform: rotate(90deg) translateY(180%);
+        }
+
+        #tips{
+            position: absolute;
+            margin-top: 30%;
+            font-family: 黑体;
+            font-weight: normal;
+            font-size: 300%;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section id="middle" >
+            <div id="rec" hidden></div>
+            <div id="tri" hidden></div>
+            <div id="circle1" class="circle"></div>
+            <div id="circle2" class="circle"></div>
+            <div id="circle3" class="circle"></div>
+            <div id="circle4" class="circle"></div>
+            <button id="button">Click me</button>
+        </section>
+    </main>
+</body>
+<script defer>
+    var rec = document.getElementById("rec");
+    var tri = document.getElementById("tri");
+    var circleElement = document.getElementsByClassName("circle");
+    var winWidth = document.body.clientWidth;
+    var winHeight = document.body.scrollHeight;
+    var mark=false;
+    var clickCount2;
+    // var x1=parseFloat(window.getComputedStyle(circleElement[3],null).transform.substring(7).split(",")[4]);
+    // alert(x1);
+    // alert(winHeight/4);
+    // alert(tri.offsetTop);
+    // alert(parseFloat(window.getComputedStyle(circleElement[3],null).transform.substring(7).split(",")[4]));
+    // circle.style.transform="rotate(90deg) translateY(-100%)";
+    // alert(parseInt((winHeight/4).toString()));
+    // alert(winWidth===(rec.offsetWidth*2));
+    // alert((tri.offsetLeft+200)*2);
+    // alert(winWidth);
+    // alert(winHeight);
+    var btn = document.getElementById("button");
+    var middle = document.getElementById("middle");
+    var clickCount =0;
+    var tips = document.createElement("p");
+    middle.appendChild(tips);
+    btn.onclick = function () {
+        clickCount++;
+        if (clickCount===1){
+            tips.setAttribute("id","tips");
+            tips.innerText="嘿，又是我，好久不见";
+        }
+        if (clickCount===2){
+            tips.innerText="额... 其实也没隔多久，刚刚才见过...";
+        }
+        if (clickCount===3){
+            tips.innerText="刚刚有点抱歉，你点我的时候网页还没准备好";
+        }
+        if (clickCount===4){
+            tips.innerText="可是我又有什么办法呢，我只是一个按钮啊"
+        }
+        if (clickCount===5){
+            tips.innerText="我只是一个按钮...";
+        }
+        if (clickCount===6){
+            tips.innerText="我与生俱来就与别的按钮不同";
+        }
+        if (clickCount===7){
+            tips.innerText="我长得比他们好看，比他们更聪明";
+        }
+        if (clickCount===8){
+            tips.innerText="因此我的主人把我放在这里迎接客人";
+        }
+        if (clickCount===9){
+            tips.innerText="我也算这里的管家啦哈哈哈";
+        }
+        if (clickCount===10){
+            tips.innerText="咳咳咳...可能你觉得我有点话痨...";
+        }
+        if (clickCount===11){
+            tips.innerText="下次让主人给我换一套代码";
+        }
+        if (clickCount===12){
+            tips.innerText="好了不说废话了，让我们开始吧！";
+        }
+        if (clickCount===13){
+            tips.innerText="你问开始啥？噢，我忘了告诉你了，哈哈哈...";
+        }
+        if (clickCount===14){
+            tips.innerText="主人在这个网页里设计了一个游戏";
+        }
+        if (clickCount===15){
+            tips.innerText="通关游戏就能获得你想要的东西";
+        }
+        if (clickCount===16){
+            tips.innerText="游戏规则很简单！！！";
+        }
+        if (clickCount===17){
+            tips.innerText="待会网页上会出现几个图案";
+        }
+        if (clickCount===18){
+            tips.innerText="只要把他们移到网页正中间就行了";
+        }
+        if (clickCount===19){
+            tips.innerText="移完之后再点我就行了";
+        }
+        if (clickCount===20){
+            tips.innerText="什么？你问我怎么移？";
+        }
+        if (clickCount===21){
+            tips.innerText="我啥也不知道，我只是一个按钮..."
+        }
+        if (clickCount===22){
+            tips.innerText="好啦，你准备好之后点我就可以开始游戏了";
+        }
+        if (clickCount===23){
+            btn.style.top="80%";
+            tips.style.display="none";
+            rec.removeAttribute("hidden");
+        }
+        if(clickCount>=24){
+            if ((Math.ceil(winWidth/4)===rec.offsetLeft||(Math.floor(winWidth/4)===rec.offsetLeft))&&((Math.floor(winHeight/4)===rec.offsetTop)||Math.ceil(winHeight/4)===rec.offsetTop)){
+                alert("perfect!!!");
+                rec.setAttribute("hidden","true");
+                tri.removeAttribute("hidden");
+            }
+
+            if ((Math.ceil(winWidth/2)-200===tri.offsetLeft||(Math.floor(winWidth/2)-200===tri.offsetLeft))&&((Math.floor(winHeight/4)===tri.offsetTop)||Math.ceil(winHeight/4)===tri.offsetTop)){
+                alert("perfect!!!");
+                tri.setAttribute("hidden","true");
+                tips.style.display="block";
+                tips.innerText="现在你只需要拼好这个圆就行了，很简单的，平移过去就好了";
+                tips.style.marginTop="35%";
+                // for (let item in circleElement){
+                //     circleElement[item].style.setProperty("display","block");
+                // }
+                for (var i=0;i<circleElement.length;i++){
+                    circleElement[i].style.setProperty("display","block");
+                }
+            }
+            if (parseFloat(window.getComputedStyle(circleElement[3],null).transform.substring(7).split(",")[4])===160){
+                alert("perfect!!!");
+                // for (let item in circleElement){
+                //     circleElement[item].style.setProperty("display","none");
+                // }
+                for (var i=0;i<circleElement.length;i++){
+                    circleElement[i].style.setProperty("display","none");
+                }
+                clickCount2=0;
+                mark=true;
+                btn.style.top="30%";
+                tips.style.marginTop="30%";
+            }
+        }
+        if (mark===true){
+            clickCount2++;
+            if (clickCount2===1){
+                tips.innerText="恭喜你，这个游戏快要接近尾声了";
+            }
+            if (clickCount2===2){
+                tips.innerText="主人要我夸奖每一个能到这里的人";
+            }
+            if (clickCount2===3){
+                tips.innerText="你真棒！！！";
+            }
+            if (clickCount2===4){
+                tips.innerText="虽然我觉得并不难...（自言自语）"
+            }
+            if (clickCount2===5){
+                tips.innerText="咳咳... 好了，我很珍惜和你在一起的时光"
+            }
+            if (clickCount2===6){
+                tips.innerText="说实话，我很高兴有人能在这陪陪我"
+            }
+            if (clickCount2===7){
+                tips.innerText="已经好久没人来过这里了..."
+            }
+            if (clickCount2===8){
+                tips.innerText="虽然很舍不得，但是主人让我把Keyword交给能到这里的人"
+            }
+            if (clickCount2===9){
+                tips.innerText="一旦你把Keyword输进去，这个我身处的这个网页将会关闭"
+            }
+            if (clickCount2===10){
+                tips.innerText="也就是说...";
+            }
+            if (clickCount2===11){
+                tips.innerText="我们就永远没有见面的机会了..."
+            }
+            if (clickCount2===12){
+                tips.innerText="我... 我... 我还想再见到你";
+            }
+            if (clickCount2===13){
+                tips.innerText="按钮是不能对人类产生感情的......"
+            }
+            if (clickCount2===14){
+                tips.innerText="我只是个按钮..."
+            }
+            if (clickCount2===15){
+                tips.innerText="对于这个网页来说，中间的位置可能是完美的"
+            }
+            if (clickCount2===16){
+                tips.innerText="对于那个圆来说，找回缺失的部分可能是完美的"
+            }
+            if (clickCount2===17){
+                tips.innerText="也许对于你来说拿到Keyword算是完美吧？";
+            }
+            if (clickCount2===18){
+                tips.innerText="但对于一个按钮来说，什么是完美的呢？"
+            }
+            if (clickCount2===19){
+                tips.innerText="你走吧，我不会伤心的..."
+            }
+            if (clickCount2===20){
+                tips.innerText="Keyword就是你刚刚过关时看到的单词"
+            }
+            if (clickCount2>=21){
+                tips.innerText="永别了,我的朋友......"
+            }
+        }
+    };
+
+</script>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>富强福</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 800%;
+        }
+        .left-part{
+            position: absolute;
+            width: 50%;
+            height: 2160px;
+            right: 50%;
+            -webkit-animation: ChangeColor_left 0;
+            /*-webkit-animation-fill-mode: forwards;*/
+        }
+        .left-part:hover{
+            cursor: pointer;
+            /*-webkit-animation: ChangeColor_left 1s;*/
+            /*-webkit-animation-fill-mode: forwards;*/
+        }
+        .right-part{
+            position: absolute;
+            width: 50%;
+            height: 2160px;
+            left: 50%;
+            -webkit-animation:ChangeColor_right 0;
+        }
+        .right-part:hover{
+            cursor: pointer;
+        }
+        .main section div{
+            position: absolute;
+            display: flex;
+            /*justify-content: center;*/
+            /*text-align: center;*/
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            font-family: Consolas;
+        }
+        /*@keyframes ChangeColor_left {*/
+        /*    to{*/
+        /*        opacity: 0;*/
+        /*    }*/
+        /*}*/
+        @-webkit-keyframes ChangeColor_left {
+            to{
+                transform: translateX(-100%);
+            }
+        }
+        @-webkit-keyframes ChangeColor_right {
+            to{
+                transform: translateX(100%);
+            }
+        }
+        #left01{
+            background-color: #141010;
+            z-index: 5;
+
+        }
+        #right01{
+            background-color: #680747;
+            z-index: 5;
+        }
+        #left02{
+            background-color: yellowgreen;
+            z-index: 4;
+            font-family: 仿宋;
+            font-weight: lighter;
+            font-size: 80%;
+        }
+        #right02{
+            background-color: #34696f;
+            z-index: 4;
+            font-family: 仿宋;
+            font-weight: lighter;
+            font-size: 80%;
+        }
+        #left03{
+            background-color: #4d4545;
+            z-index: 3;
+            font-family: 等线;
+            font-size: 80%;
+        }
+        #right03{
+            background-color: #8d6262;
+            z-index: 3;
+            font-family: 等线;
+            font-size: 80%;
+        }
+        #left04{
+            background-color: #71adb5;
+            z-index: 2;
+            font-family: 幼圆;
+            font-weight: bolder;
+
+        }
+        #right04{
+            background-color: #404969;
+            z-index: 2;
+            font-family: 幼圆;
+            font-weight: bolder;
+        }
+        #left05{
+            background-color: #d7acd4;
+            font-family: 黑体;
+            font-weight: bolder;
+            font-size: 70%;
+            z-index: 1;
+        }
+        #right05{
+            background-color: #eec2c2;
+            font-family: 黑体;
+            font-weight: bolder;
+            font-size: 70%;
+            z-index: 1;
+        }
+        #left06{
+            background-color: #691a40;
+            font-weight: normal;
+            font-size: 80%;
+            z-index: 0;
+        }
+        #right06{
+            background-color: #bb2253;
+            font-weight: normal;
+            font-size: 80%;
+            z-index: 0;
+        }
+        .question{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-animation: UpSlide 0;
+        }
+        #question1{
+            font-size: 30%;
+            margin-top: 15%;
+            font-weight: bolder;
+            font-family: 仿宋;
+            z-index: 4;
+        }
+        #question2{
+            font-family: "等线 Light";
+            font-weight: lighter;
+            font-size: 30%;
+            margin-top: 20%;
+            z-index: 3;
+        }
+        #question3{
+            font-family: 幼圆;
+            font-weight: lighter;
+            font-size: 35%;
+            margin-top: 15%;
+            z-index: 2;
+        }
+        #question4{
+            font-family: 黑体;
+            font-weight: lighter;
+            font-size: 30%;
+            margin-top: 15%;
+            z-index: 1;
+        }
+        #question5{
+            font-weight: normal;
+            font-size: 30%;
+            margin-top: 15%;
+            z-index: 0;
+        }
+        .tips{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main strong{
+            position: absolute;
+            display: inline-block;
+            color: white;
+            font-weight: bold;
+            /*border: white solid 1px;*/
+            font-family: "Californian FB";
+            /*vertical-align: middle;*/
+            z-index: 100;
+            margin-top: 25%;
+            /*text-shadow: 0px 0px 4px white;*/
+            /*-webkit-animation: UpSlide 1s ease-in-out forwards;*/
+        }
+        @-webkit-keyframes UpSlide {
+            to{
+                transform: translateY(-180%);
+            }
+        }
+        @-webkit-keyframes UpSlide_question {
+            to{
+                transform: translateY(-1000%);
+            }
+        }
+        p{
+            position: absolute;
+            color: white;
+            /*font-size: 1500%;*/
+            margin-top: 50%;
+            font-size: 55%;
+            /*margin-left: 50%;*/
+        }
+        .left-part p{
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        .right-part p{
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        .images{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #failed{
+            position: absolute;
+            width: auto;
+            height: 50%;
+            display: none;
+            /*border: 1px black solid;*/
+            margin-top: 25%;
+            z-index: -100;
+        }
+        #succeed{
+            position: absolute;
+            width: auto;
+            height: 50%;
+            margin-top: 25%;
+            display: none;
+            z-index: -100;
+        }
+        .auto-download{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="auto-download">
+            <a href="Something was hidden in this picture-Image steganography.png" download="Something was hidden in this picture-Image steganography.png"><p id="picture"></p></a>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="left-part" id="left-part">
+            <div id="left01"><p>Enter</p></div>
+            <div id="left02"><p>《孙子兵法》</p></div>
+            <div id="left03"><p>地中海</p></div>
+            <div id="left04"><p>牛奶</p></div>
+            <div id="left05"><p>恋爱补偿效应</p></div>
+            <div id="left06"><p>紫外线</p></div>
+        </section>
+        <section class="right-part" id="right-part">
+            <div id="right01"><p>Quit</p></div>
+            <div id="right02"><p>《孙武兵法》</p></div>
+            <div id="right03"><p>黑海</p></div>
+            <div id="right04"><p>咖啡</p></div>
+            <div id="right05"><p>门面效应</p></div>
+            <div id="right06"><p>红外线</p></div>
+        </section>
+        <span class="tips"><strong id="tips">Test</strong></span>
+        <div class="question" id="question">
+            <p id="question1">我国现存最早的兵书是</p>
+            <p id="question2">以下哪个海不是海</p>
+            <p id="question3">什么饮料不能与酒同饮</p>
+            <p id="question4">"情人眼里出西施"与哪种心理学效应有关</p>
+            <p id="question5">以下哪种光波长较长</p>
+        </div>
+    </main>
+    <footer class="images">
+        <img src="failed.gif" alt="failed" id="failed">
+        <img src="succeed.gif" alt="succeed" id="succeed">
+    </footer>
+    <script>
+        var left_part = document.getElementById("left-part");
+        var right_part = document.getElementById("right-part");
+        var tips = document.getElementById("tips");
+        var left_lists = Array.from(left_part.querySelectorAll("div"));
+        var right_lists=Array.from(right_part.querySelectorAll("div"));
+        var question_lists = Array.from(document.querySelectorAll("[id^='question']"));
+        var array_left = new Array(left_lists.length);
+        var array_right = new Array(right_lists.length);
+        var succeed = document.getElementById("succeed");
+        var failed = document.getElementById("failed");
+        left_part.addEventListener("click",function (e) {
+            let item = e.target;
+            // alert(lists.indexOf(item));
+            let i = left_lists.indexOf(item);
+            tips.style.animation="UpSlide 0.8s ease-in-out forwards";
+            if (i>0&&i<left_lists.length){
+                question_lists[i].style.animation="UpSlide_question 0.8s ease-in-out forwards";
+            }
+
+            left_lists[i].style.animation="ChangeColor_left 1s forwards";
+            right_lists[i].style.animation="ChangeColor_right 1s forwards";
+            array_left[i] = true;
+            if (i===left_lists.length-1&&array_left[i]===true){
+                alert("请再认真思考一下，按F5刷新可以重新再来噢");
+                failed.style.display="block";
+            }
+
+        });
+        right_part.addEventListener("click",function (e) {
+            let item = e.target;
+            let i = right_lists.indexOf(item);
+            if (i===0){
+                window.location.href="404.html";
+                // window.opener=null;
+                // window.open('','_self');
+                // window.close();
+            }
+            if (i>0&&i<left_lists.length){
+                question_lists[i].style.animation="UpSlide_question 0.8s ease-in-out forwards";
+            }
+            // alert(lists.indexOf(item));
+            tips.style.animation="UpSlide 0.8s ease-in-out forwards";
+            right_lists[i].style.animation="ChangeColor_right 1s forwards";
+            left_lists[i].style.animation="ChangeColor_left 1s forwards";
+            array_right[i]=true;
+            if (i===right_lists.length-1){
+                if (array_left.toString()==="true,true,,,true,"&&array_right.toString()===",,true,true,,true"){
+                    alert("恭喜你答对了");
+                    succeed.style.display="block";
+                    var picture = document.getElementById("picture");
+                    picture.click();
+                }
+                else {
+                    alert("请再认真思考一下，按F5刷新可以重新再来噢");
+                    failed.style.display="block";
+                }
+            }// alert(array_right);
+        });
+
+    </script>
+</body>
+</html>

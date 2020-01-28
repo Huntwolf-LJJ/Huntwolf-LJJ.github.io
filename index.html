@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谜题</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="imgBox">
+                <img src="mouse1.jpg" class="img-slide img1" alt="1">
+                <img src="mouse2.jpg" class="img-slide img2" alt="2">
+                <img src="mouse3.jpg" class="img-slide img3" alt="3">
+                <img src="mouse4.jpg" class="img-slide img4" alt="4">
+                <img src="mouse5.jpg" class="img-slide img5" alt="5">
+            </div>
+        </nav>
+    </header>
+    <section class="main">
+        <h1>让我们开始找到谜题的flag吧！！！</h1>
+
+        <br>
+        <iframe src="wufu-table.html" name="wufu-table" scrolling="no" frameborder="0"></iframe>
+        <strong id="important">进行解密期间切勿刷新或重新打开本页面，否则解密进度将消失！！！</strong>
+</section>
+</body>
+<script type="text/javascript">
+    var index=0;
+    //改变图片
+    function ChangeImg() {
+        index++;
+        var a = document.getElementsByClassName("img-slide");
+        if (index>=a.length){
+            index=0;
+        }
+        for (var i=0;i<a.length;i++){
+            a[i].style.display='none';
+        }
+        a[index].style.display='block';
+    }
+    //设定定时器
+    setInterval(ChangeImg,2000);
+
+</script>
+</html>

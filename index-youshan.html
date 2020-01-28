@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友善福</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        img{
+            position: absolute;
+            width: auto;
+            height: 350px;
+            z-index: -1;
+            /*border: solid 1px black;*/
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+        }
+        .password{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .password article{
+            font-size: 27px;
+            font-weight: lighter;
+            font-family: 楷体;
+            width: 50%;
+            position: absolute;
+            top:9%;
+            display: block;
+        }
+        nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2%;
+        }
+        nav #label{
+            color: #E49D99;
+            position: relative;
+            letter-spacing: 2px;
+            cursor: pointer;
+            font-size: 30px;
+            font-family: 方正清刻本悦宋简体;
+            left: -2%;
+            /*font-size: 60px;*/
+            /*color: transparent;*/
+            /*-webkit-text-stroke: 1px black;*/
+            /*letter-spacing: 0.04em;*/
+
+            /*color: transparent;*/
+            /*background-color: black;*/
+            /*text-shadow: rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;*/
+            /*-webkit-background-clip: text;*/
+
+            /*color: #fafafa;*/
+            /*letter-spacing: 0;*/
+            /*text-shadow: 0px 1px 0px #999,0px 2px 0px #888,0px 3px 0px #777,0px 4px 0px #666,*/
+            /*0px 5px 0px #555,0px 6px 0px #444,0px 7px 0px #333,0px 8px 7px #001135;*/
+        }
+        nav #label:before{
+            content: attr(title);
+            width: 0;
+            position: absolute;
+            z-index: 2;
+            color: #d5b7e2;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: 0.6s;
+        }
+        nav #label:hover:before{
+            width: 100%;
+        }
+        nav #date{
+            width: 12%;
+            font-size: 20px;
+            font-family: "微软雅黑 Light";
+            font-weight: lighter;
+            cursor: pointer;
+        }
+        #button{
+            position: relative;
+            overflow: hidden;
+            padding: 5px 15px;
+            margin: 5px 20px;
+            border-radius: 4px;
+            background-color: transparent;
+            cursor: pointer;
+            left: 2%;
+        }
+        #button:after{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle,#666 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10,10);
+            opacity: 0;
+            transition: transform .3s,opacity .5s;
+        }
+        #button:active:after{
+            transform: scale(0,0);
+            opacity: 3;
+            transition: 0s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="password" id="key">
+            <article>佛曰：無奢倒奢他瑟盡得缽栗皤涅伊是諳多帝梵藐奢怖漫究沙穆缽羯老缽室不曳奢南哆竟侄栗怯諦倒怯謹皤迦哆集怯諦哆楞怯沙皤實冥藝罰摩波諳利罰謹逝俱盡怖涅都哆夢缽隸藝冥苦怯所怯若阿耶俱羯罰心蘇梵佛恐罰咒跋呐世梵豆除怖呐密婆姪缽盧缽世梵伽梵至俱般醯一所怯諸吉薩怯切梵般</article>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div id="gif">
+                <img src="study.gif"  alt="study.gif">
+            </div>
+        </section>
+    </main>
+    <nav id="test">
+        <label for="date" id="label" title="请选择你喜欢的人的生日：">请选择你喜欢的人的生日：</label>
+        <input type="date" id="date" min="1970-01-01" max="2020-12-31">
+        <input type="button" id="button" onclick="checkDate()" value="确定">
+    </nav>
+</body>
+<script defer>
+    var password = document.getElementById("key");
+    var img = document.getElementById("gif");
+    var nav = document.getElementById("test");
+    // password.style.setProperty("display","none");
+    password.style.setProperty("visibility","hidden");
+    img.style.setProperty("display","none");
+    function checkDate() {
+        var date = document.getElementById("date");
+        if (date.value==="1999-12-21"){
+            alert("Easy Job啦！！！");
+            nav.style.setProperty("display","none");
+            img.style.setProperty("display","block");
+            password.style.setProperty("visibility","visible");
+        }
+        else {
+            alert("我是哪让您不满意了吗？？？");
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <link rel="stylesheet" type="text/css" href="404.css">
+</head>
+<body>
+    <main>
+        <div class="contain">
+            <h2>Oops! Page not found.</h2>
+            <h1>404</h1>
+            <p>We can't find the page you're looking for.</p>
+            <a href="#" id="button">Go back</a>
+        </div>
+    </main>
+
+</body>
+<script>
+    var btn = document.getElementById("button");
+    btn.onclick = function (){
+        history.back();
+    };
+</script>
+</html>

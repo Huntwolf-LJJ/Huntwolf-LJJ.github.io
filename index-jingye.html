@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敬业福</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        main section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main section p{
+            position: absolute;
+            margin-top: 25%;
+            font-size: 3em;
+            font-family: "等线 Light";
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section>
+            <p id="tips">有时候眼见不一定为实</p>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+<script>
+    var winWidth_screen = window.screen.width;
+    // alert(winWidth_client);
+    var logCount=0;
+    var tips = document.getElementById("tips");
+    setInterval(function () {
+        var winWidth_client = document.body.clientWidth;
+        if (winWidth_client<winWidth_screen/2){
+            tips.innerText="Look at your console";
+            if (logCount<=99){
+                console.log("Look at the secret.txt");
+                logCount++;
+            }
+        }
+        else {
+            tips.innerText="有时候眼见不一定为实";
+        }
+
+    },10);
+</script>
+</html>

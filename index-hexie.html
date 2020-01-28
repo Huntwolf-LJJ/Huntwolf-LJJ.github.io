@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和谐福</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .button{
+            position: absolute;
+            z-index: 3;
+            /*padding: 0;*/
+            /*margin: 0;*/
+            /*left: 50%;*/
+            /*top: 50%;*/
+            /*-webkit-transform: translate(-50%,-50%);*/
+            margin-top: 25%;
+            outline: none;
+            display: block;
+            height: 100px;
+            width: 380px;
+
+            background: #34696f;
+            border: 2px solid rgba(33, 68, 72, 0.59);
+
+            color: rgba(0, 0, 0, 0.55);
+            text-align: center;
+            font: bold 3.2em/100px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+            text-decoration: none;
+
+            /*background: linear-gradient(top, #34696f, #2f5f63);*/
+            /*border-radius: 50px;*/
+            /*box-shadow: 0 8px 0 #1b383b;*/
+            /*text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);*/
+            background: -webkit-linear-gradient(top, #34696f, #2f5f63);
+            background: -moz-linear-gradient(top, #34696f, #2f5f63);
+            background: -o-linear-gradient(top, #34696f, #2f5f63);
+            background: -ms-linear-gradient(top, #34696f, #2f5f63);
+            background: linear-gradient(top, #34696f, #2f5f63);
+
+            -webkit-border-radius: 50px;
+            -khtml-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+
+            -webkit-box-shadow: 0 8px 0 #1b383b;
+            -moz-box-shadow: 0 8px 0 #1b383b;
+            box-shadow: 0 8px 0 #1b383b;
+
+            text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);
+
+        }
+        .button:hover{
+            background: #3d7a80;
+            background: -webkit-linear-gradient(top, #3d7a80, #2f5f63);
+            background: -moz-linear-gradient(top, #3d7a80, #2f5f63);
+            background: -o-linear-gradient(top, #3d7a80, #2f5f63);
+            background: -ms-linear-gradient(top, #3d7a80, #2f5f63);
+            background: linear-gradient(top, #3d7a80, #2f5f63);
+            cursor: pointer;
+        }
+        .button:active{
+            background: #3d7a80;
+            box-shadow: 0 4px 0 #494949;
+            transform: translateY(4px);
+        }
+        @-webkit-keyframes button {
+            0%{
+                -webkit-transform:translate(0.6%, 0.6%);
+            }
+            25%{
+                -webkit-transform:translate(-0.6%, -0.6%);
+            }
+            50%{
+                -webkit-transform:translate(0px, 0px);
+            }
+            75%{
+                -webkit-transform:translate(0.6%, -0.6%);
+            }
+            100%{
+                -webkit-transform:translate(-0.6%, -0.6%);
+            }
+        }
+        @keyframes button {
+            0%{
+                -webkit-transform:translate(0.6%, 0.6%);
+            }
+            25%{
+                -webkit-transform:translate(-0.6%, -0.6%);
+            }
+            50%{
+                -webkit-transform:translate(0px, 0px);
+            }
+            75%{
+                -webkit-transform:translate(0.6%, -0.6%);
+            }
+            100%{
+                -webkit-transform:translate(-0.6%, -0.6%);
+            }
+        }
+        #buttonShake{
+            -webkit-animation: button 0.2s infinite;
+            animation: button 0.2s infinite;
+
+        }
+        video{
+            position: fixed;
+            right:0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -9999;
+        }
+        p{
+            color: white;
+            width: 45px;
+            /*border: solid 1px white;*/
+            font-size: 80px;
+            line-height: 100px;
+            word-wrap: break-word;
+            font-family: 黑体;
+            -webkit-animation: button 0.2s infinite;
+            animation: button 0.2s infinite;
+        }
+        .left-nums{
+            position: absolute;
+            left: 10%;
+            margin-top: 3%;
+            /*top: 5%;*/
+        }
+        .right-nums{
+            position: absolute;
+            right: 10%;
+            margin-top: 3%;
+            /*top: 10%;*/
+        }
+        footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /*left: 50%;*/
+            /*top: 70%;*/
+        }
+        strong{
+            color: #ff1275;
+            /*border: solid 2px white;*/
+            /*width: 100px;*/
+            /*height: 380px;*/
+            font-size: 45px;
+            line-height: 100px;
+            font-family: 黑体;
+            font-weight: bolder;
+        }
+        #tips{
+            position: absolute;
+            z-index: 0;
+            padding: 0;
+            display: block;
+            /*left: -50%;*/
+            top: 70%;
+            -webkit-animation: button 0.2s infinite;
+            animation: button 0.2s infinite;
+            /*-webkit-transform: translate(-50%,-50%);*/
+            /*width: 570px;*/
+            /*margin-right: 50%;*/
+            /*top:70%;*/
+            /*left: 50%;*/
+        }
+    </style>
+</head>
+<body>
+    <video src="Comp.mp4" preload="auto" loop id="bgVideo"></video>
+    <input type="button" id="button" class="button" value="别按这个按钮" onclick="btnClick();">
+    <section id="main">
+        <audio hidden src="Last%20Dance.mp3" loop id="lastDance" preload="auto"></audio>
+        <aside id="aside" class="aside">
+
+        </aside>
+        <footer id="footer">
+
+        </footer>
+    </section>
+</body>
+<script type="text/javascript">
+    let isClick = false;
+    let btn = document.getElementById("button");
+    let bgm = document.getElementById("lastDance");
+    let bgVideo = document.getElementById("bgVideo");
+    let aside = document.getElementById("aside");
+    var footer = document.getElementById("footer");
+    function btnClick() {
+        isClick=true;
+        btn.setAttribute("id","buttonShake");
+        bgm.play();
+        // showTips();
+        // showText();
+        setTimeout(playVideo,14000);
+        setTimeout(showText,14500);
+        setTimeout(showTips,27000);
+
+    }
+    function playVideo() {
+        bgVideo.play();
+    }
+    function showText() {
+        let left_nums = document.createElement("p");
+        let right_nums = document.createElement("p");
+        left_nums.className = "left-nums";
+        left_nums.innerHTML = "2233445";
+        right_nums.className="right-nums";
+        right_nums.innerHTML="6677889";
+        aside.appendChild(left_nums);
+        aside.appendChild(right_nums);
+    }
+    function showTips() {
+        var tips = document.createElement("strong");
+        tips.id = "tips";
+        tips.innerHTML = "Keyword是一个四字成语噢";
+        footer.appendChild(tips);
+    }
+
+</script>
+</html>

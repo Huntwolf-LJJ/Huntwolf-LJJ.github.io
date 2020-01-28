@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical CSS3 tables with rounded corners - demo</title>
+
+<style>
+body {
+    width: 600px;
+    margin: 40px auto;
+    font-family: 'trebuchet MS', 'Lucida sans', Arial;
+    font-size: 14px;
+    color: #444;
+}
+
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+}
+
+label{
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: "Arial";
+}
+.form{
+    /*border: solid 2px salmon;*/
+    margin: 30px auto;
+    width: 400px;
+
+}
+
+#submit{
+    position: relative;
+    overflow: hidden;
+    padding: 5px 15px;
+    margin: 5px 20px;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+#submit:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle,#666 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10,10);
+    opacity: 0;
+    transition: transform .3s,opacity .5s;
+}
+#submit:active:after{
+    transform: scale(0,0);
+    opacity: 3;
+    transition: 0s;
+}
+
+/*.form #submit{*/
+/*    border: black 1px solid;*/
+/*}*/
+/*.form #label{*/
+/*    border: #2d0920 1px solid;*/
+/*}*/
+/*.form #text{*/
+/*    border: red 1px solid;*/
+/*}*/
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.bordered td, .bordered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;    
+}
+
+.bordered th {
+    background-color: #dce9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+</style>
+</head>
+
+<body>
+    <div class="form">
+        <label for="text" id="label">请输入Keyword：</label>
+        <input type="text" name="text" id="text">
+        <button id="submit" onclick="checkWufu();isFinish()">提交</button>
+    </div>
+
+<table class="bordered">
+
+    <thead>
+
+    <tr>
+        <th>集五福</th>
+        <th>当前进度</th>
+        <th>收集入口</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>和谐福</td>
+        <td id="hexie-processing">0%</td>
+        <td><a href="index-hexie.html" target="_blank">去收集</a></td>
+    </tr>        
+    <tr>
+        <td>友善福</td>
+        <td id="youshan-processing">0%</td>
+        <td><a href="index-youshan.html" target="_blank">去收集</a></td>
+    </tr>
+    <tr>
+
+        <td>富强福</td>
+        <td id="fuqiang-processing">0%</td>
+        <td><a href="index-fuqiang.html" target="_blank">去收集</a></td>
+    </tr>    
+    <tr>
+        <td>爱国福</td>
+        <td id="aiguo-processing">0%</td>
+        <td><a href="index-aiguo.html" target="_blank" id="onlyOne">去收集</a></td>
+    </tr>
+    <tr>
+        <td>敬业福</td>
+        <td id="jingye-processing">0%</td>
+        <td><a href="index-jingye.html" target="_blank" onclick="threeTimes()">去收集</a></td>
+    </tr>
+
+</table>
+    <script type="text/javascript" defer>
+        let btn = document.getElementById("submit");
+        var text = document.getElementById("text");
+        var wufu = new Array(5);
+        wufu[0] = false;
+        wufu[1] = false;
+        wufu[2] = false;
+        wufu[3] = false;
+        wufu[4] = false;
+        function checkWufu() {
+            if (text.value==="缺衣少食"&&wufu[0]===false){
+                alert("恭喜你获得了和谐福！！！");
+                document.getElementById("hexie-processing").innerText="100%";
+                wufu[0] = true;
+                return;
+            }
+            else if (text.value==="缺衣少食"&&wufu[0]===true){
+                alert("你已经拿到和谐福了！！！");
+                return;
+            }
+            if (text.value==="illness"&&wufu[1]===false){
+                alert("恭喜你获得了友善福！！！")
+                document.getElementById("youshan-processing").innerText="100%";
+                wufu[1]=true;
+                return;
+            }
+            else if (text.value==="illness"&&wufu[1]===true){
+                alert("你已经拿到友善福了！！！");
+                return;
+            }
+            if (text.value==="困难"&&wufu[2]===false){
+                alert("恭喜你获得了富强福！！！");
+                document.getElementById("fuqiang-processing").innerText="100%";
+                wufu[2]=true;
+                return;
+            }
+            else if (text.value==="困难"&&wufu[2]===true){
+                alert("你已经拿到富强福了！！！");
+                return;
+            }
+            if (text.value==="perfect"&&wufu[3]===false){
+                alert("恭喜你获得了爱国福！！！");
+                document.getElementById("aiguo-processing").innerText="100%";
+                wufu[3]=true;
+                document.getElementById("onlyOne").setAttribute("href","404.html");
+                return;
+            }
+            else if (text.value==="perfect"&&wufu[3]===true){
+                alert("你已经拿到爱国福了！！！");
+                return;
+            }
+            if (text.value==="12069.5"&&wufu[4]===false){
+                alert("恭喜你获得了敬业福！！！");
+                document.getElementById("jingye-processing").innerText="100%";
+                wufu[4]=true;
+                return;
+            }
+            else if (text.value==="12069.5"&&wufu[4]===true){
+                alert("你已经拿到敬业福了！！！");
+                return;
+            }
+            alert("Keyword输入错误，请再认真思考一下噢！！！");
+
+        }
+        function isFinish() {
+            var counter=0;
+            for (var i=0;i<wufu.length;i++){
+                // wufu[i]=true;
+                if (wufu[i]===true){
+                    counter++;
+                }
+            }
+            if (counter===5){
+                alert("你已经收集完五福了！！！")
+                var eleLink = document.createElement("a");
+                eleLink.style.display="none";
+                eleLink.href="Final.psd";
+                eleLink.download="Final.psd";
+                document.body.appendChild(eleLink);
+                eleLink.click();
+                document.body.removeChild(eleLink);
+            }
+        }
+        var jingyeClickCount = 0;
+        function threeTimes() {
+            jingyeClickCount++;
+            if (jingyeClickCount>=3){
+                var eleLink = document.createElement("a");
+                eleLink.style.display="none";
+                eleLink.href="Just guess what songs'name and add them(ignore the intro,what you get is the Keyword).mp3";
+                eleLink.download="Just guess what songs'name and add them(ignore the intro,what you get is the Keyword).mp3";
+                document.body.appendChild(eleLink);
+                eleLink.click();
+                document.body.removeChild(eleLink);
+            }
+        }
+    </script>
+</body>
+</html>
