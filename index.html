@@ -48,13 +48,13 @@
     function ChangeImg() {
         index++;
         var a = document.getElementsByClassName("img-slide");
-        if (index>=a.length){
+        if (index>=images.length){
             index=0;
         }
-        for (var i=0;i<a.length;i++){
-            a[i].style.display='none';
+        for (var i=0;i<images.length;i++){
+            images[i].style.display='none';
         }
-        a[index].style.display='block';
+        images[index].style.display='block';
     }
     //设定定时器
     setInterval(ChangeImg,2000);
