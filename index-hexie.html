@@ -197,9 +197,24 @@
         let bgVideo = document.getElementById("bgVideo");
         let aside = document.getElementById("aside");
         var footer = document.getElementById("footer");
+        var loading = 0;
+        var nowPercentage=0;
+        window.onload = function () {
+            bgm.oncanplay = function () {
+                loading++;
+                nowPercentage = loading/2*100;
+                console.log(nowPercentage+"%");
+            };
+            bgVideo.oncanplaythrough = function () {
+                loading++;
+                nowPercentage = loading/2*100;
+                console.log(nowPercentage+"%");
+            };
+
+        };
         function btnClick() {
             isClick=true;
-            btn.setAttribute("id","buttonShake");
+            btn.setAttribute("id","buttonShake")
             bgm.play();
             // showTips();
             // showText();
@@ -227,7 +242,6 @@
             tips.innerHTML = "Keyword是一个四字成语噢";
             footer.appendChild(tips);
         }
-   
 
 </script>
 </html>
