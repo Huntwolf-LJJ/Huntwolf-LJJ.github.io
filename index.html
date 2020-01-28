@@ -10,23 +10,11 @@
     <header>
         <nav>
             <div class="imgBox">
-                <script>
-                    var images = new Array();
-                    function preload() {
-                        for (let i=0;i<preload.arguments.length;i++){
-                            images[i] = new Image();
-                            images[i].src = preload.arguments[i];
-                        }
-                    }
-                    preload(
-                        "mouse1.jpg",
-                        "mouse2.jpg",
-                        "mouse3.jpg",
-                        "mouse4.jpg",
-                        "mouse5.jpg"
-                    );
-                </script>
-                
+                <img src="mouse1.jpg" class="img-slide img1" alt="1">
+                <img src="mouse2.jpg" class="img-slide img2" alt="2">
+                <img src="mouse3.jpg" class="img-slide img3" alt="3">
+                <img src="mouse4.jpg" class="img-slide img4" alt="4">
+                <img src="mouse5.jpg" class="img-slide img5" alt="5">
             </div>
         </nav>
     </header>
@@ -44,13 +32,13 @@
     function ChangeImg() {
         index++;
         var a = document.getElementsByClassName("img-slide");
-        if (index>=images.length){
+        if (index>=a.length){
             index=0;
         }
-        for (var i=0;i<images.length;i++){
-            images[i].style.display='none';
+        for (var i=0;i<a.length;i++){
+            a[i].style.display='none';
         }
-        images[index].style.display='block';
+        a[index].style.display='block';
     }
     //设定定时器
     setInterval(ChangeImg,2000);
