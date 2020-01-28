@@ -191,42 +191,44 @@
     </section>
 </body>
 <script type="text/javascript">
-    let isClick = false;
-    let btn = document.getElementById("button");
-    let bgm = document.getElementById("lastDance");
-    let bgVideo = document.getElementById("bgVideo");
-    let aside = document.getElementById("aside");
-    var footer = document.getElementById("footer");
-    function btnClick() {
-        isClick=true;
-        btn.setAttribute("id","buttonShake");
-        bgm.play();
-        // showTips();
-        // showText();
-        setTimeout(playVideo,14000);
-        setTimeout(showText,14500);
-        setTimeout(showTips,27000);
+    window.onload =function () {
+        let isClick = false;
+        let btn = document.getElementById("button");
+        let bgm = document.getElementById("lastDance");
+        let bgVideo = document.getElementById("bgVideo");
+        let aside = document.getElementById("aside");
+        var footer = document.getElementById("footer");
+        function btnClick() {
+            isClick=true;
+            btn.setAttribute("id","buttonShake");
+            bgm.play();
+            // showTips();
+            // showText();
+            setTimeout(playVideo,14000);
+            setTimeout(showText,14500);
+            setTimeout(showTips,27000);
 
-    }
-    function playVideo() {
-        bgVideo.play();
-    }
-    function showText() {
-        let left_nums = document.createElement("p");
-        let right_nums = document.createElement("p");
-        left_nums.className = "left-nums";
-        left_nums.innerHTML = "2233445";
-        right_nums.className="right-nums";
-        right_nums.innerHTML="6677889";
-        aside.appendChild(left_nums);
-        aside.appendChild(right_nums);
-    }
-    function showTips() {
-        var tips = document.createElement("strong");
-        tips.id = "tips";
-        tips.innerHTML = "Keyword是一个四字成语噢";
-        footer.appendChild(tips);
-    }
+        }
+        function playVideo() {
+            bgVideo.play();
+        }
+        function showText() {
+            let left_nums = document.createElement("p");
+            let right_nums = document.createElement("p");
+            left_nums.className = "left-nums";
+            left_nums.innerHTML = "2233445";
+            right_nums.className="right-nums";
+            right_nums.innerHTML="6677889";
+            aside.appendChild(left_nums);
+            aside.appendChild(right_nums);
+        }
+        function showTips() {
+            var tips = document.createElement("strong");
+            tips.id = "tips";
+            tips.innerHTML = "Keyword是一个四字成语噢";
+            footer.appendChild(tips);
+        }
+    };
 
 </script>
 </html>
