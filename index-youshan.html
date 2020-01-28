@@ -116,7 +116,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="ImgComplete()">
     <header>
         <div class="password" id="key">
             <article>佛曰：無奢倒奢他瑟盡得缽栗皤涅伊是諳多帝梵藐奢怖漫究沙穆缽羯老缽室不曳奢南哆竟侄栗怯諦倒怯謹皤迦哆集怯諦哆楞怯沙皤實冥藝罰摩波諳利罰謹逝俱盡怖涅都哆夢缽隸藝冥苦怯所怯若阿耶俱羯罰心蘇梵佛恐罰咒跋呐世梵豆除怖呐密婆姪缽盧缽世梵伽梵至俱般醯一所怯諸吉薩怯切梵般</article>
@@ -125,7 +125,7 @@
     <main>
         <section>
             <div id="gif">
-                <img src="study.gif"  alt="study.gif">
+                <img src="study.gif"  alt="study.gif" id="img">
             </div>
         </section>
     </main>
@@ -154,6 +154,10 @@
             alert("我是哪让您不满意了吗？？？");
         }
     }
-
+    function ImgComplete() {
+        if (document.getElementById("img").complete){
+            console.log("100%");
+        }
+    }
 </script>
 </html>
