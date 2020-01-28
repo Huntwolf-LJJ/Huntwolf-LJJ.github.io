@@ -10,6 +10,22 @@
     <header>
         <nav>
             <div class="imgBox">
+                <script>
+                    var images = new Array();
+                    function preload() {
+                        for (let i=0;i<preload.arguments.length;i++){
+                            images[i] = new Image();
+                            images[i].src = preload.arguments[i];
+                        }
+                    }
+                    preload(
+                        "mouse1.jpg",
+                        "mouse2.jpg",
+                        "mouse3.jpg",
+                        "mouse4.jpg",
+                        "mouse5.jpg"
+                    );
+                </script>
                 <img src="mouse1.jpg" class="img-slide img1" alt="1">
                 <img src="mouse2.jpg" class="img-slide img2" alt="2">
                 <img src="mouse3.jpg" class="img-slide img3" alt="3">
