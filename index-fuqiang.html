@@ -253,7 +253,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="ImgComplete()">
     <header>
         <nav class="auto-download">
             <a href="Something was hidden in this picture-Image steganography.png" download="Something was hidden in this picture-Image steganography.png"><p id="picture"></p></a>
@@ -346,9 +346,22 @@
                     alert("请再认真思考一下，按F5刷新可以重新再来噢");
                     failed.style.display="block";
                 }
-            }// alert(array_right);
+            }
         });
-
+        var loading=0;
+        var nowPercentage=0;
+        function ImgComplete() {
+            if (failed.complete){
+                loading++;
+                nowPercentage = loading/2*100;
+                console.log(nowPercentage+"%");
+            }
+            if (succeed.complete){
+                loading++;
+                nowPercentage = loading/2*100;
+                console.log(nowPercentage+"%");
+            }
+        }
     </script>
 </body>
 </html>
