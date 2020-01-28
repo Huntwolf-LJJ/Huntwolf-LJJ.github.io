@@ -18,18 +18,27 @@ body{
 }
 .img1{
     display: block;
+    background: url("mouse1.jpg") no-repeat -9999px -9999px;
 }
 .img2{
     display: none;
+    background: url("mouse2.jpg") no-repeat -9999px -9999px;
+
 }
 .img3{
     display: none;
+    background: url("mouse3.jpg") no-repeat -9999px -9999px;
+
 }
 .img4{
     display: none;
+    background: url("mouse4.jpg") no-repeat -9999px -9999px;
+
 }
 .img5{
     display: none;
+    background: url("mouse5.jpg") no-repeat -9999px -9999px;
+
 }
 .main{
     display: flex;
